@@ -1,6 +1,6 @@
 use clap::Parser;
 use regex::Regex;
-use serde_json::{json, Value};
+use serde_json::{from_str, json, Value};
 
 /// Advent 2015-10
 #[derive(Parser, Debug)]
@@ -47,7 +47,7 @@ fn main() {
             println!("{}", x);
         }
         2 => {
-            let mut y = serde_json::from_str(input).unwrap();
+            let mut y = from_str(input).unwrap();
             let x = add_numbers(&find_reds(&mut y).to_string());
             println!("{}", x);
         }
